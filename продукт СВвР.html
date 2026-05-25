@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Смутное время в России | Исторический буклет</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f3eee5;
+            color: #2c2b28;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Исторический акцент */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Шапка-обложка буклета */
+        .hero {
+            background: linear-gradient(135deg, #1e3c2c 0%, #2a4a35 100%);
+            color: #f9efd9;
+            padding: 60px 0 50px;
+            text-align: center;
+            border-bottom: 8px solid #c9a87b;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            margin-top: 12px;
+            font-style: italic;
+            border-top: 1px solid #c9a87b;
+            display: inline-block;
+            padding-top: 12px;
+        }
+
+        .meta {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 0.95rem;
+            background: rgba(0,0,0,0.2);
+            display: inline-flex;
+            padding: 10px 28px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* навигация буклета */
+        .nav-links {
+            background: #fff9ef;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #ddd0bc;
+        }
+
+        .nav-links ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #4a2e1e;
+            font-family: 'Playfair Display', serif;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #b45f2b;
+            border-bottom: 2px solid #b45f2b;
+        }
+
+        /* карточки и секции */
+        section {
+            padding: 56px 0;
+            border-bottom: 1px solid #e2d5c0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3a2c1f;
+            margin-bottom: 32px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 6px solid #c9a87b;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.2s ease;
+            border: 1px solid #ede3d4;
+        }
+
+        .card i {
+            font-size: 2.2rem;
+            color: #8b5a2b;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .timeline-item {
+            background: white;
+            border-radius: 18px;
+            padding: 20px;
+            border-left: 8px solid #b37b48;
+        }
+
+        .timeline-year {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #7a4316;
+            font-family: monospace;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fffef7;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9dfd1;
+            vertical-align: top;
+        }
+
+        th {
+            background: #e3d5c0;
+            font-weight: 700;
+            color: #2c2b28;
+        }
+
+        .quote {
+            background: #e9dfcf;
+            padding: 24px;
+            border-radius: 40px 20px 40px 20px;
+            font-style: italic;
+            margin: 32px 0;
+            font-size: 1.1rem;
+            border-left: 6px solid #8b5a2b;
+        }
+
+        /* Тест */
+        .quiz-block {
+            background: #fff6e8;
+            padding: 28px;
+            border-radius: 28px;
+        }
+
+        .quiz-question {
+            margin-bottom: 24px;
+        }
+
+        .quiz-question p {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .quiz-options label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+
+        .btn {
+            background: #8b5a2b;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #5e3e1c;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        footer {
+            background: #1e2b22;
+            color: #d9cdb6;
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 780px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .nav-links ul { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="container">
+        <h1>СМУТНОЕ ВРЕМЯ <br> В РОССИИ</h1>
+        <div class="sub">1598–1613: крушение, сопротивление и возрождение</div>
+        <div style="margin-top: 30px;">
+            <div class="meta">
+                <span><i class="fas fa-user-graduate"></i> Иванов И.И., группа ИСиП-21</span>
+                <span><i class="fas fa-chalkboard-teacher"></i> Руководитель: Струкова Е.П.</span>
+                <span><i class="fas fa-calendar-alt"></i> 2026</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="nav-links">
+    <div class="container">
+        <ul>
+            <li><a href="#causes">Причины</a></li>
+            <li><a href="#stages">Этапы</a></li>
+            <li><a href="#opols">Ополчения</a></li>
+            <li><a href="#heroes">Герои</a></li>
+            <li><a href="#results">Итоги</a></li>
+            <li><a href="#quiz">Тест</a></li>
+        </ul>
+    </div>
+</div>
+
+<main class="container">
+    <!-- ПРИЧИНЫ -->
+    <section id="causes">
+        <h2 class="section-title"><i class="fas fa-search" style="margin-right: 12px;"></i> Ключевые причины Смуты</h2>
+        <div class="grid-2">
+            <div class="card">
+                <i class="fas fa-crown"></i>
+                <h3>Династический кризис</h3>
+                <p>Пресечение династии Рюриковичей после смерти Фёдора Иоанновича (1598). Борьба боярских кланов (Годуновы, Романовы, Шуйские) подорвала легитимность власти.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-farm"></i>
+                <h3>Экономический упадок</h3>
+                <p>Опричнина, закрепощение крестьян, а затем неурожайные годы (1601–1603) и массовый голод. Социальное напряжение выплеснулось в восстания.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-landmark"></i>
+                <h3>Внешнее вмешательство</h3>
+                <p>Речь Посполитая и Швеция поддержали самозванцев (Лжедмитрий I, II), стремясь ослабить Россию и расширить своё влияние.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-fist-raised"></i>
+                <h3>Социальный протест</h3>
+                <p>Крестьяне, казаки и холопы жаждали «доброго царя». Массы поддержали Болотникова и самозванцев, видя в них избавителей.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЭТАПЫ -->
+    <section id="stages">
+        <h2 class="section-title"><i class="fas fa-clock"></i> Этапы Смутного времени</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1598–1606 · I этап (династический)</div>
+                <p>Избрание Бориса Годунова, голод, появление Лжедмитрия I. Убийство самозванца и воцарение Василия Шуйского.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1606–1610 · II этап (социальный разлом)</div>
+                <p>Восстание Болотникова, Лжедмитрий II («Тушинский вор»), вторжение поляков, свержение Шуйского, «Семибоярщина».</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1610–1613 · III этап (национально-освободительный)</div>
+                <p>Интервенция, созыв Первого и Второго ополчений. Освобождение Москвы в октябре 1612 г. Земский собор 1613 г. и воцарение Михаила Романова.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОПОЛЧЕНИЯ (сравнительная таблица, как в проекте) -->
+    <section id="opols">
+        <h2 class="section-title"><i class="fas fa-shield-alt"></i> Народные ополчения: сравнение</h2>
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Критерий</th>
+                        <th>Первое ополчение (1611)</th>
+                        <th>Второе ополчение (1611–1612)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Организаторы</td><td>П. Ляпунов, И. Заруцкий, Д. Трубецкой</td><td>К. Минин, Д. Пожарский</td></tr>
+                    <tr><td>Социальная база</td><td>Дворяне, казаки, остатки служилых</td><td>Посадские люди, крестьяне, дворяне, духовенство</td></tr>
+                    <tr><td>Центр</td><td>Рязань, затем под Москвой</td><td>Нижний Новгород, Ярославль («Совет всей земли»)</td></tr>
+                    <tr><td>Причина распада/успеха</td><td>Распри между дворянами и казаками, убийство Ляпунова</td><td>Строгая дисциплина, единое командование, сбор «пятинных денег»</td></tr>
+                    <tr><td>Итог</td><td>Не смог освободить Москву, развалился</td><td>Освобождение Москвы (окт. 1612) → созыв Земского собора</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="quote">
+            «Купим и не пощадим животов своих…» — воззвание Минина в Нижнем Новгороде. Второе ополчение стало символом народного единства.
+        </div>
+    </section>
+
+    <!-- ГЕРОИ СМУТЫ -->
+    <section id="heroes">
+        <h2 class="section-title"><i class="fas fa-star-of-life"></i> Ключевые фигуры</h2>
+        <div class="grid-2">
+            <div class="card"><i class="fas fa-user-tie"></i><h3>Кузьма Минин</h3><p>Земский староста, инициатор сбора средств и создания Второго ополчения. Организатор и хозяйственный гений.</p></div>
+            <div class="card"><i class="fas fa-horse-head"></i><h3>Дмитрий Пожарский</h3><p>Воевода, военный лидер ополчения. Освободил Москву от интервентов. Символ ратной доблести.</p></div>
+            <div class="card"><i class="fas fa-church"></i><h3>Патриарх Гермоген</h3><p>Духовный вдохновитель сопротивления, рассылал грамоты с призывом бороться с интервентами. Умер в заточении.</p></div>
+            <div class="card"><i class="fas fa-crown"></i><h3>Михаил Романов</h3><p>Избран на царство Земским собором 1613 г. Основатель новой династии, правившей 300 лет.</p></div>
+        </div>
+    </section>
+
+    <!-- ИТОГИ И ЗНАЧЕНИЕ -->
+    <section id="results">
+        <h2 class="section-title"><i class="fas fa-chart-line"></i> Исторические последствия</h2>
+        <div class="grid-2">
+            <div class="card">
+                <i class="fas fa-building"></i>
+                <h3>Государственность</h3>
+                <p>Установление династии Романовых, укрепление самодержавия. Роль Земских соборов временно возросла.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-frown"></i>
+                <h3>Экономический урон</h3>
+                <p>Разорение центральных уездов, гибель населения (до 40%). Восстановление заняло десятилетия, окончательно закрепилось крепостное право.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-globe"></i>
+                <h3>Внешнеполитические потери</h3>
+                <p>Столбовский мир (1617) — потеря выхода к Балтике. Деулинское перемирие (1618) — уступка Смоленска и Чернигова.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-heart"></i>
+                <h3>Национальное единство</h3>
+                <p>Смута укрепила осознание общности перед лицом внешней угрозы. День народного единства — 4 ноября — напоминание о подвиге ополчения.</p>
+            </div>
+        </div>
+        <div class="quote">
+            <i class="fas fa-quote-left"></i> Смута стала уроком: только объединение всех сословий способно спасти Отечество. Это время не только разрухи, но и рождения национального самосознания.
+        </div>
+    </section>
+
+    <!-- ТЕСТ (интерактивный продукт) -->
+    <section id="quiz">
+        <h2 class="section-title"><i class="fas fa-puzzle-piece"></i> Проверь себя</h2>
+        <div class="quiz-block" id="quizBlock">
+            <div class="quiz-question">
+                <p>1. Какое событие считается началом Смутного времени?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q1" value="a"> Смерть Ивана Грозного (1584)</label>
+                    <label><input type="radio" name="q1" value="b"> Пресечение династии Рюриковичей и избрание Бориса Годунова (1598)</label>
+                    <label><input type="radio" name="q1" value="c"> Начало восстания Болотникова (1606)</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>2. Кто был лидером Второго ополчения?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q2" value="a"> Прокопий Ляпунов</label>
+                    <label><input type="radio" name="q2" value="b"> Иван Болотников</label>
+                    <label><input type="radio" name="q2" value="c"> Кузьма Минин и Дмитрий Пожарский</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>3. Что было итогом Земского собора 1613 года?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q3" value="a"> Приглашение на престол польского королевича Владислава</label>
+                    <label><input type="radio" name="q3" value="b"> Избрание Михаила Романова царём</label>
+                    <label><input type="radio" name="q3" value="c"> Свержение Василия Шуйского</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>4. Кто возглавлял Первое ополчение (1611 г.)?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q4" value="a"> П. Ляпунов, Д. Трубецкой, И. Заруцкий</label>
+                    <label><input type="radio" name="q4" value="b"> К. Минин и Д. Пожарский</label>
+                    <label><input type="radio" name="q4" value="c"> М. Скопин-Шуйский</label>
+                </div>
+            </div>
+            <button class="btn" id="checkQuiz">Узнать результат</button>
+            <div id="quizResult" class="result"></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>Индивидуальный проект по истории — Смутное время в России. Студент Иванов И.И., группа ИСиП-21, руководитель Струкова Е.П.</p>
+        <p>Яровской политехнический техникум, 2026 • Все материалы являются результатом самостоятельного исследования.</p>
+        <p><i class="fas fa-book-open"></i> Источники: труды Скрынникова, Платонова, Ключевского, «Сказание» Авраамия Палицына</p>
+    </div>
+</footer>
+
+<script>
+    const quizBtn = document.getElementById('checkQuiz');
+    const resultDiv = document.getElementById('quizResult');
+    const correctAnswers = { q1: 'b', q2: 'c', q3: 'b', q4: 'a' };
+
+    quizBtn.addEventListener('click', () => {
+        let score = 0;
+        for (let i = 1; i <= 4; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected && selected.value === correctAnswers[`q${i}`]) {
+                score++;
+            }
+        }
+        resultDiv.innerHTML = `<strong>✔️ Правильных ответов: ${score} из 4.</strong><br>
+        ${score === 4 ? 'Отлично! Вы хорошо знаете события Смутного времени.' : 
+          score === 3 ? 'Хороший результат, но стоит повторить детали.' : 
+          'Рекомендуем ещё раз изучить этапы и ключевых героев Смуты.'}`;
+    });
+</script>
+</body>
+</html>
